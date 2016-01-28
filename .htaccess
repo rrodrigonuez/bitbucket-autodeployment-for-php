@@ -10,3 +10,8 @@
     order allow,deny
     deny from all
 </FilesMatch>
+
+<Files conf.php.example>
+    order allow,deny
+    deny from all
+</FilesMatch>
