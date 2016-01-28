@@ -1,0 +1,10 @@
+# Autodetect text files
+* text=auto
+
+# Force the following filetypes to have unix eols, so Windows does not break them
+*.php text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+.htaccess text eol=lf
+seeder text eol=lf

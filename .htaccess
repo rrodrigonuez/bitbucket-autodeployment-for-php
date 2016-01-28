@@ -1,0 +1,12 @@
+<FilesMatch "\.php$">
+    Order deny,allow
+    Deny from all
+    Allow from 131.103.20.160/27
+    Allow from 165.254.145.0/26
+    Allow from 104.192.143.0/24
+</FilesMatch>
+
+<Files conf.php>
+    order allow,deny
+    deny from all
+</FilesMatch>
