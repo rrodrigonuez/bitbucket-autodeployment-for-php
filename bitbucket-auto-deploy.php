@@ -90,8 +90,6 @@ foreach ( $dirs_to_update as $dir ) {
     chdir( $dir );
 
     $output[] = "Branch: " . $branch;
-    exec( "git pull origin " . $branch, $output );
-    $output[] = "\n";
     exec( "GIT_WORK_TREE=" . $web_root_dir . " git checkout -f", $output );
     $output[] = "Commit Hash: " . shell_exec( 'git rev-parse --short HEAD' );
 
