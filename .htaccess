@@ -15,3 +15,23 @@
     order allow,deny
     deny from all
 </FilesMatch>
+
+<Files .gitignore>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files .gitattributes>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files .gitmodules>
+    order allow,deny
+    deny from all
+</Files>
+
+<Files .htaccess>
+    order allow,deny
+    deny from all
+</Files>
