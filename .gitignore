@@ -25,7 +25,7 @@ sftp.config.json
 
 # Specific project ignores
 /log/*.log
-/conf.php
+/config.php
 composer.phar
 composer.lock
 

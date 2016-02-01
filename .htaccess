@@ -6,12 +6,12 @@
     Allow from 104.192.143.0/24
 </FilesMatch>
 
-<Files conf.php>
+<Files config.php>
     order allow,deny
     deny from all
 </FilesMatch>
 
-<Files conf.php.example>
+<Files config.php.example>
     order allow,deny
     deny from all
 </FilesMatch>

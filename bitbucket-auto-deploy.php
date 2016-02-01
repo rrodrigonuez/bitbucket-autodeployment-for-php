@@ -12,7 +12,7 @@ $bitbucket_IP_ranges = array(
 
 $ip        = $_SERVER['REMOTE_ADDR'];
 $protocol  = ( isset($_SERVER['SERVER_PROTOCOL'] ) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0' );
-$conf_file = __DIR__ . '/conf.php';
+$conf_file = __DIR__ . '/config.php';
 
 if ( ! file_exists( $conf_file ) || ! is_readable( $conf_file ) ) {
     $error = 'config file not found';
@@ -90,6 +90,7 @@ foreach ( $dirs_to_update as $dir ) {
     chdir( $dir );
 
     $output[] = "Branch: " . $branch;
+    exec( "git fetch origin " . $branch, $output );
     exec( "GIT_WORK_TREE=" . $web_root_dir . " git checkout -f", $output );
     $output[] = "Commit Hash: " . shell_exec( 'git rev-parse --short HEAD' );
 
@@ -134,11 +135,12 @@ function deployLogger( $message, $force = false ) {
         }
 
         if ( ! empty( $message ) ) {
-            $logFile = basename( __FILE__, '.php' ) . '_' . date( 'Y-m-d' ) . '.log';
+            $logPath     = __DIR__ . DIRECTORY_SEPARATOR . 'log';
+            $logFilePath = $logPath . DIRECTORY_SEPARATOR . date( 'Y-m-d' ) . '.log';
             file_put_contents(
-                                $logFile,
-                                'Webhook deployment ' . date( "F j, Y, g:i a" ) . ': ' . $message . "\n"
-                                , FILE_APPEND
+                                $logFilePath,
+                                'Webhook deployment ' . date( "F j, Y, g:i a" ) . ': ' . $message . "\n",
+                                FILE_APPEND
                              );
         }
     }
