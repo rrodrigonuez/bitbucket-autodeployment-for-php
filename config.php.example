@@ -1,5 +1,7 @@
 <?php
 
+$key          = ''; // This key is used to verify if the request is valid or not
+
 $repo_branch  = ''; // This is the branch which you want to deploy
 $repo_dir     = ''; // This folder must be owned by the user that runs PHP (default: www-data)
 $web_root_dir = ''; // This folder must be owned by the user that runs PHP (default: www-data)

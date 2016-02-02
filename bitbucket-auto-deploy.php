@@ -27,6 +27,9 @@ require_once $conf_file;
 if ( empty( $ip ) || ! check_ip_in_range( $ip, $bitbucket_IP_ranges ) ) {
     header( $protocol . ' 400 Bad Request' );
     die( 'invalid ip address' );
+} else if ( ! isset( $_GET['key'] ) && ! empty( $key ) && $_GET['key'] != $key ) {
+    header( $protocol . ' 400 Bad Request' );
+    die( 'invalid key' );
 } else if ( empty( json_decode( file_get_contents( 'php://input' ), true) ) ) {
     header( $protocol . ' 400 Bad Request' );
     die( 'missing payload' );
